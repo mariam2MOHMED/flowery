@@ -1,0 +1,144 @@
+# ==============================================================================
+# analysis_options.yaml
+# ملف إعدادات تحليل الكود في مشاريع Flutter/Dart
+# هذا الملف بيتحكم في قواعد الـ linting والـ static analysis
+# ==============================================================================
+
+# -------------------------------------------------------
+# include: استيراد قواعد جاهزة من حزمة خارجية
+# -------------------------------------------------------
+# flutter_lints هي الحزمة الرسمية اللي بتشيل أفضل الممارسات
+# لازم تضيفها في pubspec.yaml:
+#   dev_dependencies:
+#     flutter_lints: ^3.0.0
+include: package:flutter_lints/flutter.yaml
+
+# -------------------------------------------------------
+# analyzer: إعدادات المحلل الأساسي
+# -------------------------------------------------------
+analyzer:
+
+  # errors: تحديد مستوى خطورة كل نوع من الأخطاء
+  errors:
+    # invalid_annotation_target: خطأ بيظهر لو استخدمت annotation في مكان غلط
+    invalid_annotation_target: ignore   # ignore = تجاهل تماماً
+    # missing_required_param: لو نسيت parameter مطلوب
+    missing_required_param: error       # error = يوقف الـ build
+    # dead_code: كود مش بيتنفذ أبداً
+    dead_code: warning                  # warning = تحذير بس مش خطأ
+
+  # exclude: ملفات أو مجلدات هتتجاهلها في التحليل
+  exclude:
+    - "**/*.g.dart"          # ملفات الـ code generation (مش بتكتبها أنت)
+    - "**/*.freezed.dart"    # ملفات Freezed المولّدة تلقائياً
+    - "**/*.mocks.dart"      # ملفات الـ mocks للـ testing
+    - "lib/generated/**"     # أي مجلد generated بالكامل
+    - "build/**"             # مجلد الـ build
+
+  # language: إعدادات خاصة بلغة Dart
+  language:
+    # strict-casts: يمنعك تعمل cast غير آمن بدون فحص
+    strict-casts: true
+    # strict-inference: يلزم Dart يستنتج الـ types بدقة
+    strict-inference: true
+    # strict-raw-types: يمنع استخدام Generic بدون تحديد النوع
+    strict-raw-types: true
+
+# -------------------------------------------------------
+# linter: قواعد أسلوب الكتابة والجودة
+# -------------------------------------------------------
+linter:
+  rules:
+    # ============ قواعد فعّالة (true = شغّالة) ============
+
+    # prefer_const_constructors: استخدم const لما يكون ممكن (بيحسن الأداء)
+    prefer_const_constructors: true
+
+    # prefer_const_literals_to_create_immutables: استخدم const في الـ lists والـ maps
+    prefer_const_literals_to_create_immutables: true
+
+    # avoid_print: لا تستخدم print() في كود الإنتاج، استخدم logger بدلها
+    avoid_print: true
+
+    # use_key_in_widget_constructors: لازم تضيف Key في constructors الـ Widgets
+    use_key_in_widget_constructors: true
+
+    # sized_box_for_whitespace: استخدم SizedBox بدل Container لو مش محتاج decoration
+    sized_box_for_whitespace: true
+
+    # avoid_unnecessary_containers: لا تضيف Container من غير لازمة
+    avoid_unnecessary_containers: true
+
+    # prefer_single_quotes: استخدم '' بدل "" في الـ strings
+    prefer_single_quotes: true
+
+    # always_declare_return_types: دايماً حدد الـ return type للـ functions
+    always_declare_return_types: true
+
+    # annotate_overrides: حط @override فوق أي method بتـ override
+    annotate_overrides: true
+
+    # cancel_subscriptions: لازم تلغي الـ StreamSubscription في dispose
+    cancel_subscriptions: true
+
+    # close_sinks: لازم تغلق الـ StreamSink
+    close_sinks: true
+
+    # avoid_empty_else: لا تكتب else فاضي
+    avoid_empty_else: true
+
+    # avoid_redundant_argument_values: لا تبعت قيم افتراضية صراحةً
+    avoid_redundant_argument_values: true
+
+    # avoid_relative_lib_imports: استخدم import مطلق مش نسبي
+    avoid_relative_lib_imports: true
+
+    # directives_ordering: رتب الـ imports بالترتيب الصح
+    directives_ordering: true
+
+    # eol_at_end_of_file: سطر فاضي في آخر كل ملف
+    eol_at_end_of_file: true
+
+    # no_duplicate_case_values: لا تكرر case values في switch
+    no_duplicate_case_values: true
+
+    # prefer_is_empty: استخدم isEmpty بدل length == 0
+    prefer_is_empty: true
+
+    # prefer_is_not_empty: استخدم isNotEmpty بدل length > 0
+    prefer_is_not_empty: true
+
+    # unnecessary_new: لا تستخدم كلمة new (مش ضرورية في Dart)
+    unnecessary_new: true
+
+    # unnecessary_this: لا تكتب this. إلا لو ضروري
+    unnecessary_this: true
+
+    # ============ قواعد متوقفة (false = مش شغّالة) ============
+
+    # always_specify_types: مش مطلوب تكتب النوع في كل مكان (Dart بيستنتجه)
+    always_specify_types: false
+
+    # public_member_api_docs: لو محتاج توثيق كامل فعّل دي
+    public_member_api_docs: false
+
+    # lines_longer_than_80_chars: بعض الناس بتفضل 100 أو 120
+    lines_longer_than_80_chars: false
+
+# ==============================================================================
+# ملاحظات مهمة:
+# ------------------------------------------------------------------------------
+# 1. بعد أي تغيير في الملف ده، شغّل:
+#      flutter analyze
+#    عشان تشوف الـ warnings والـ errors
+#
+# 2. لو عايز تعمل fix تلقائي لبعض المشاكل:
+#      dart fix --apply
+#
+# 3. مستويات الخطورة المتاحة:
+#      error   → بيوقف الـ build
+#      warning → تحذير (مش بيوقف)
+#      info    → معلومة بس
+#      ignore  → تجاهل تماماً
+# ==============================================================================
+
