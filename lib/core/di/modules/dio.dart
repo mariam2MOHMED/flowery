@@ -3,6 +3,8 @@ import 'package:flowerecommeric/core/di/di.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../constants/end_point_constants.dart';
+
 @module
 abstract class DioModule{
   @lazySingleton
@@ -13,6 +15,8 @@ abstract class DioModule{
     dio.options.headers={
       'Content-Type':'application/json'
     };
+    dio.options.baseUrl = Env.apiUrl;
+
     dio.interceptors.add(getIt<PrettyDioLogger>());
   return dio;
   }

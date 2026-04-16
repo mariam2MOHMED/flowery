@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noRouteFound => 'no Route Found';
 
   @override
+  String get registerSuccess => 'Register Success ✅';
+
+  @override
   String get occasion => 'Occasion';
 
   @override
@@ -387,4 +390,88 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noLocationFound => 'No Address Found !   😐';
+
+  @override
+  String get emailRequired => 'Email is required';
+
+  @override
+  String get emailNotValid => 'This email is not valid';
+
+  @override
+  String get passwordRequired => 'Password is required';
+
+  @override
+  String get passwordMinLength => 'Password must be at least 6 characters';
+
+  @override
+  String get passwordUppercase =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordNumber => 'Password must contain at least one number';
+
+  @override
+  String get passwordsNotMatch => 'Passwords do not match';
+
+  @override
+  String get usernameRequired => 'Username is required';
+
+  @override
+  String get usernameNotValid => 'Enter a valid username';
+
+  @override
+  String get fullnameRequired => 'Full name is required';
+
+  @override
+  String get fullnameMinLength =>
+      'Full name must be at least 3 characters long';
+
+  @override
+  String get phoneRequired => 'Phone number is required';
+
+  @override
+  String get phoneNumbersOnly => 'Enter numbers only';
+
+  @override
+  String get phoneLength => 'Value must be 11 digits after country code';
+
+  @override
+  String get numberRequired => 'This field is required';
+
+  @override
+  String get numberOnly => 'Enter numbers only';
+
+  @override
+  String get passNotMatch => 'Password not correct';
+
+  @override
+  String get passwordMustContainLowerCase =>
+      'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordMustContainUpperCase =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordMustContainNumber =>
+      'Password must contain at least one number';
+
+  @override
+  String get passwordMustContainSpecialChar =>
+      'Password must contain at least one special character';
+
+  @override
+  String get fieldRequired => 'Field Required';
+
+  @override
+  String get firstNameRequired => 'First name is required';
+
+  @override
+  String get firstNameTooShort => 'First name is too short';
+
+  @override
+  String get lastNameRequired => 'Last name is required';
+
+  @override
+  String get lastNameTooShort => 'Last name is too short';
 }

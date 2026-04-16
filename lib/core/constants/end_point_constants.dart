@@ -6,64 +6,38 @@ part 'end_point_constants.g.dart';
 abstract class Env {
 
   @EnviedField(varName: 'API_URL',obfuscate: true)
-  static final String apiUrl = _Env.apiUrl;
+  static   String apiUrl = _Env.apiUrl;
 
-  @EnviedField(varName: 'PRODUCTS_ENDPOINT',obfuscate: true)
-  static  String products = _Env.products;
+}
+abstract class ApiEndPoints {
+  static const String productsByOccasionEndPoint="products?";
+  static const String productsEndPoint = "products";
 
-  @EnviedField(varName: 'PRODUCTS_BY_OCCASION_ENDPOINT',obfuscate: true)
-  static  String productsByOccasion = _Env.productsByOccasion;
+  static const String authEndPoint = "auth/";
 
-  @EnviedField(varName: 'AUTH_ENDPOINT',obfuscate: true)
-  static  String auth = _Env.auth;
+  static const String loginEndPoint = "/signin";
 
-  @EnviedField(varName: 'LOGIN_ENDPOINT',obfuscate: true)
-  static  String login = _Env.login;
+  static const String signupEndPoint = 'signup/';
 
-  @EnviedField(varName: 'SIGNUP_ENDPOINT',obfuscate: true)
-  static  String signup = _Env.signup;
+  static const String forgetPasswordEndPoint = "forgotPassword";
+  static const String verfiyPasswordEndPoint = "verifyResetCode";
+  //resetPassword
+  static const String resetPasswordEndPoint = "resetPassword";
+  static const String cartEndPoint = "cart";
+  static const String editProfileEndPoint = "auth/editProfile";
+  static const String uploadProfileEndPoint = "auth/upload-photo";
+  static const String changePasswordEndPoint = "auth/change-password";
 
-  @EnviedField(varName: 'FORGET_PASSWORD_ENDPOINT',obfuscate: true)
-  static  String forgetPassword = _Env.forgetPassword;
+  //addresses
+  static const String addressEndPoint = "addresses";
+  ///logout
+  static const String logOutEndPoint = "logout";
 
-  @EnviedField(varName: 'VERIFY_PASSWORD_ENDPOINT',obfuscate: true)
-  static  String verifyPassword = _Env.verifyPassword;
-
-  @EnviedField(varName: 'RESET_PASSWORD_ENDPOINT',obfuscate: true)
-  static  String resetPassword = _Env.resetPassword;
-
-
-  @EnviedField(varName: 'CART_ENDPOINT',obfuscate: true)
-  static  String cart = _Env.cart;
-
-
-  @EnviedField(varName: 'EDIT_PROFILE_ENDPOINT',obfuscate: true)
-  static  String editProfile = _Env.editProfile;
-
-  @EnviedField(varName: 'UPLOAD_PROFILE_ENDPOINT',obfuscate: true)
-  static  String uploadProfile = _Env.uploadProfile;
-
-  @EnviedField(varName: 'CHANGE_PASSWORD_ENDPOINT',obfuscate: true)
-  static  String changePassword = _Env.changePassword;
-
-  @EnviedField(varName: 'GET_USER_DATA_ENDPOINT',obfuscate: true)
-  static  String getUserData = _Env.getUserData;
+  static const String getUserDataEndPoint = "profile-data";
 
 
-  @EnviedField(varName: 'ADDRESS_ENDPOINT',obfuscate: true)
-  static  String address = _Env.address;
+  static const String ordersEndPoint = "orders";
+  static const String createcashorder = "orders";
+  static const String createcardorder = "orders/checkout?url=http://localhost:3000";
 
-
-  @EnviedField(varName: 'LOGOUT_ENDPOINT',obfuscate: true)
-  static  String logout = _Env.logout;
-
-
-  @EnviedField(varName: 'ORDERS_ENDPOINT',obfuscate: true)
-  static  String orders = _Env.orders;
-
-  @EnviedField(varName: 'CREATE_CASH_ORDER',obfuscate: true)
-  static  String createCashOrder = _Env.createCashOrder;
-
-  @EnviedField(varName: 'CREATE_CARD_ORDER',obfuscate: true)
-  static  String createCardOrder = _Env.createCardOrder;
 }

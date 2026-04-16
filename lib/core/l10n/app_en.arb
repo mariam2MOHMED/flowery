@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
   "noRouteFound": "no Route Found",
-
+"registerSuccess": "Register Success ✅",
   "occasion": "Occasion",
   "bloomWithOurExquisitebestSellers": "Bloom with our exquisite best sellers",
   "allCategory": "All",
@@ -140,6 +140,31 @@
 
   "typeSomething": "Type something to search...",
   "noProductsFor":"No products found for ",
-  "noLocationFound":"No Address Found !   😐"
-
+  "noLocationFound":"No Address Found !   😐",
+  "emailRequired": "Email is required",
+  "emailNotValid": "This email is not valid",
+  "passwordRequired": "Password is required",
+  "passwordMinLength": "Password must be at least 6 characters",
+  "passwordUppercase": "Password must contain at least one uppercase letter",
+  "passwordNumber": "Password must contain at least one number",
+  "passwordsNotMatch": "Passwords do not match",
+  "usernameRequired": "Username is required",
+  "usernameNotValid": "Enter a valid username",
+  "fullnameRequired": "Full name is required",
+  "fullnameMinLength": "Full name must be at least 3 characters long",
+  "phoneRequired": "Phone number is required",
+  "phoneNumbersOnly": "Enter numbers only",
+  "phoneLength": "Value must be 11 digits after country code",
+  "numberRequired": "This field is required",
+  "numberOnly": "Enter numbers only",
+  "passNotMatch":"Password not correct",
+  "passwordMustContainLowerCase":"Password must contain at least one lowercase letter",
+  "passwordMustContainUpperCase":"Password must contain at least one uppercase letter",
+  "passwordMustContainNumber":"Password must contain at least one number",
+  "passwordMustContainSpecialChar":"Password must contain at least one special character",
+  "fieldRequired":"Field Required",
+  "firstNameRequired": "First name is required",
+  "firstNameTooShort": "First name is too short",
+  "lastNameRequired": "Last name is required",
+  "lastNameTooShort": "Last name is too short"
 }

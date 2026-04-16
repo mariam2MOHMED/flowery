@@ -12,6 +12,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noRouteFound => 'لا يوجد مسار';
 
   @override
+  String get registerSuccess => 'تم تسجيل الدخول بنجاح ✅';
+
+  @override
   String get occasion => 'المناسبة';
 
   @override
@@ -386,4 +389,89 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noLocationFound => 'No Address Found !   😐';
+
+  @override
+  String get emailRequired => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get emailNotValid => 'البريد الإلكتروني غير صالح';
+
+  @override
+  String get passwordRequired => 'كلمة المرور مطلوبة';
+
+  @override
+  String get passwordMinLength => 'يجب أن تكون كلمة المرور على الأقل 6 أحرف';
+
+  @override
+  String get passwordUppercase =>
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordNumber =>
+      'يجب أن تحتوي كلمة المرور على رقم واحد على الأقل';
+
+  @override
+  String get passwordsNotMatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get usernameRequired => 'اسم المستخدم مطلوب';
+
+  @override
+  String get usernameNotValid => 'الرجاء إدخال اسم مستخدم صالح';
+
+  @override
+  String get fullnameRequired => 'الاسم الكامل مطلوب';
+
+  @override
+  String get fullnameMinLength =>
+      'يجب أن يكون الاسم الكامل مكونًا من 3 أحرف على الأقل';
+
+  @override
+  String get phoneRequired => 'رقم الهاتف مطلوب';
+
+  @override
+  String get phoneNumbersOnly => 'يُسمح بالأرقام فقط';
+
+  @override
+  String get phoneLength => 'يجب أن يكون الرقم 11 رقمًا بعد كود الدولة';
+
+  @override
+  String get numberRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get numberOnly => 'يُسمح بالأرقام فقط';
+
+  @override
+  String get passNotMatch => 'Password not correct';
+
+  @override
+  String get passwordMustContainLowerCase =>
+      'يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل';
+
+  @override
+  String get passwordMustContainUpperCase =>
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordMustContainNumber =>
+      'يجب أن تحتوي كلمة المرور على رقم واحد على الأقل';
+
+  @override
+  String get passwordMustContainSpecialChar =>
+      'يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل';
+
+  @override
+  String get fieldRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get firstNameRequired => 'الاسم الأول مطلوب';
+
+  @override
+  String get firstNameTooShort => 'الاسم الأول قصير جدًا';
+
+  @override
+  String get lastNameRequired => 'اسم العائلة مطلوب';
+
+  @override
+  String get lastNameTooShort => 'اسم العائلة قصير جدًا';
 }

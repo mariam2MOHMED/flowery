@@ -1,39 +1,76 @@
-import 'package:flowerecommeric/core/theme/app_colors.dart';
-import 'package:flowerecommeric/core/theme/font_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'app_colors.dart';
+import 'font_manager.dart';
+import 'font_style.dart';
 
-abstract class AppTheme {
-  static ThemeData getTheme(ColorScheme colorScheme) {
-    return ThemeData(
-        colorScheme: colorScheme,
-      inputDecorationTheme: InputDecoration(
-        labelStyle:  TextStyle(
-          color: AppColors.gray,
-          fontSize: 16.sp,
-          fontWeight: FontWeightManager.medium
+
+
+class AppTheme {
+  static ThemeData lightTheme = ThemeData(
+      scaffoldBackgroundColor: AppColors.white,
+      appBarTheme: AppBarTheme(
+        foregroundColor: AppColors.white,
+        elevation: 0,
+        centerTitle: false,
+        iconTheme: const IconThemeData(color: AppColors.black),
+        titleTextStyle: GoogleFonts.roboto(
+          color: AppColors.black,
+          fontSize: 24,
+          fontWeight: FontWeight.w500,
         ),
-        hintStyle: TextStyle(
-            color: AppColors.midGray,
-            fontSize: 14.sp,
-            fontWeight: FontWeightManager.medium
+      ),
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          backgroundColor: AppColors.pinkColor[50],
+          foregroundColor: AppColors.white,
+          textStyle: GoogleFonts.roboto(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4)
-        )
+          borderRadius: BorderRadius.circular(4.0),
+          borderSide: BorderSide(color: AppColors.blackColor[40]?? Colors.grey),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4.0),
+          borderSide: BorderSide(color: AppColors.blackColor[40]?? Colors.grey),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4.0),
+          borderSide: BorderSide(color: AppColors.blackColor[60]?? Colors.grey, width: 2.0),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4.0),
+          borderSide: const BorderSide(color: AppColors.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          borderSide: const BorderSide(color: AppColors.red, width: 2.0),
+        ),
+        labelStyle: GoogleFonts.roboto(color: AppColors.black, fontSize: 16),
+        hintStyle: GoogleFonts.roboto(color: AppColors.blackColor[40], fontSize: 14),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      ),
+
+
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColors.white,
+          selectedItemColor: AppColors.pink,
+          unselectedItemColor: AppColors.gray,
+          showUnselectedLabels: true,
+          selectedLabelStyle:getMediumStyle(color: AppColors.pink,
+              fontSize: FontSize.s12
+          ),
+          unselectedLabelStyle: getMediumStyle(color: AppColors.gray,
+              fontSize: FontSize.s12
+          ),
+          type: BottomNavigationBarType.fixed
       )
-    );
-  }
-
-  static  ThemeData lightTheme() =>
-      getTheme(const ColorScheme(brightness: Brightness.light,
-          primary: AppColors.pink,
-          onPrimary: AppColors.white,
-          secondary: AppColors.black,
-          onSecondary: AppColors.black,
-          error: AppColors.red,
-          onError: AppColors.red,
-          surface:AppColors.white,
-          onSurface: AppColors.black));
-
+  );
 }
