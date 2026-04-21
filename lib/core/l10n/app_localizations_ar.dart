@@ -58,6 +58,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get description => 'الوصف';
 
   @override
+  String get continueWord => 'تواصل';
+
+  @override
   String get login => 'تسجيل الدخول';
 
   @override

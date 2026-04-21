@@ -58,6 +58,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get description => 'Description';
 
   @override
+  String get continueWord => 'continue';
+
+  @override
   String get login => 'Login';
 
   @override

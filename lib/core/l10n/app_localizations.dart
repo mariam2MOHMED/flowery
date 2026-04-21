@@ -194,6 +194,12 @@ abstract class AppLocalizations {
   /// **'Description'**
   String get description;
 
+  /// No description provided for @continueWord.
+  ///
+  /// In en, this message translates to:
+  /// **'continue'**
+  String get continueWord;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:

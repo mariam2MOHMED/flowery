@@ -24,4 +24,7 @@ abstract class Constants{
       'Invalid response: missing token or user';
 
   static const String usernamePattern = r'^[a-zA-Z0-9,.-]+$';
+  static const rememberMeKey = 'remember_me';
+  static const emailKey = 'email';
+  static const tokenKey = 'token';
 }

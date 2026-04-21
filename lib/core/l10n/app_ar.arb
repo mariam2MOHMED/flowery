@@ -152,5 +152,6 @@
   "firstNameRequired": "الاسم الأول مطلوب",
   "firstNameTooShort": "الاسم الأول قصير جدًا",
   "lastNameRequired": "اسم العائلة مطلوب",
-  "lastNameTooShort": "اسم العائلة قصير جدًا"
+  "lastNameTooShort": "اسم العائلة قصير جدًا",
+  "continueWord": "تواصل"
 }

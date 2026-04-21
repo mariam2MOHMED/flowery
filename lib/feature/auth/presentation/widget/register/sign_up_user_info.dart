@@ -3,15 +3,16 @@ import 'package:flowerecommeric/core/validator/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../view_model/register/register_cubit.dart';
-import '../view_model/register/register_event.dart';
-import '../view_model/register/register_state.dart';
+import '../../view_model/register/register_cubit.dart';
+import '../../view_model/register/register_event.dart';
+import '../../view_model/register/register_state.dart';
 
 class SignUpUserInfo extends StatelessWidget {
   const SignUpUserInfo({super.key,
     required this.firstName, required this.lastName,
     required this.email, required this.phone,
     required this.password, required this.confirmPassword,
+    this.onChanged,
   });
 final TextEditingController firstName;
   final TextEditingController lastName;
@@ -19,7 +20,7 @@ final TextEditingController firstName;
   final TextEditingController phone;
   final TextEditingController password;
   final TextEditingController confirmPassword;
-
+final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ final TextEditingController firstName;
           children: [
             Expanded(child: TextFormField(
               controller:firstName ,
+              onChanged: onChanged,
               validator: (value) => Validator.firstNameValidation(context, value),
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.firstName,
@@ -38,6 +40,8 @@ final TextEditingController firstName;
           const  SizedBox(width: 16.0,),
             Expanded(child: TextFormField(
               controller:lastName ,
+              onChanged: onChanged,
+
               validator: (value) => Validator.lastNameValidation(context, value),
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.lastName,
@@ -49,6 +53,8 @@ final TextEditingController firstName;
         const SizedBox(height: 16.0,),
         TextFormField(
           controller:email ,
+          onChanged: onChanged,
+
           validator: (value) => Validator.validateEmail(context, value),
           decoration: InputDecoration(
             labelText: AppLocalizations.of(context)!.email,
@@ -64,6 +70,8 @@ final TextEditingController firstName;
 
                builder: (context,isObsecurePass){
                return  TextFormField(
+                 onChanged: onChanged,
+
                  validator: (value) => Validator.validatePassword(context, value),
                  obscureText: isObsecurePass,
                  controller:password ,
@@ -78,7 +86,7 @@ final TextEditingController firstName;
                    suffixIcon: IconButton(
                      onPressed: (){
                        context.read<RegisterCubit>().doIntent(
-                           intent: TogglePasswordVisibilityIntent());
+                           intent: const TogglePasswordVisibilityIntent());
                      },
                      icon:  Icon(isObsecurePass?Icons.visibility:Icons.visibility_off)),
                    labelText: AppLocalizations.of(context)!.password,
@@ -94,6 +102,8 @@ final TextEditingController firstName;
               (selector: (state)=>state.isObsecureConfirmPass,
                 builder: (context,isObsecureConfirmPass){
                 return      TextFormField(
+                  onChanged: onChanged,
+
                   validator: (value) => Validator.validateConfirmPassword(
                     context,
                     value,
@@ -110,7 +120,7 @@ autocorrect: false,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(onPressed: (){
                       context.read<RegisterCubit>().
-                      doIntent(intent: ToggleConfirmPasswordVisibilityIntent());
+                      doIntent(intent: const ToggleConfirmPasswordVisibilityIntent());
                     }, icon: Icon(isObsecureConfirmPass?Icons.visibility:Icons.visibility_off)),
                     labelText: AppLocalizations.of(context)!.confirmPassword,
                     hintText: AppLocalizations.of(context)!.enterConfirmPassword,
@@ -123,6 +133,8 @@ autocorrect: false,
         const SizedBox(height: 16.0,),
         TextFormField(
           controller:phone ,
+          onChanged: onChanged,
+
           validator: (value) => Validator.validatePhoneNumber(context, value),
           decoration: InputDecoration(
             labelText: AppLocalizations.of(context)!.phone,

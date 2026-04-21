@@ -16,7 +16,7 @@
   "outOfStock": "Out of stock",
   "includeTax": "All prices include tax",
   "description": "Description",
-
+"continueWord": "continue",
   "login": "Login",
   "email": "Email",
   "enterYourEmail": "Enter your email",

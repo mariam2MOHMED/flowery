@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
-import 'font_manager.dart';
 import 'font_style.dart';
 
 
@@ -23,7 +22,8 @@ class AppTheme {
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25)),
           backgroundColor: AppColors.pinkColor[50],
           foregroundColor: AppColors.white,
           textStyle: GoogleFonts.roboto(
@@ -64,11 +64,9 @@ class AppTheme {
           selectedItemColor: AppColors.pink,
           unselectedItemColor: AppColors.gray,
           showUnselectedLabels: true,
-          selectedLabelStyle:getMediumStyle(color: AppColors.pink,
-              fontSize: FontSize.s12
+          selectedLabelStyle:getMediumStyle(color: AppColors.pink
           ),
-          unselectedLabelStyle: getMediumStyle(color: AppColors.gray,
-              fontSize: FontSize.s12
+          unselectedLabelStyle: getMediumStyle(color: AppColors.gray
           ),
           type: BottomNavigationBarType.fixed
       )

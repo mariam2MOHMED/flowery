@@ -4,10 +4,10 @@ import 'package:flowerecommeric/core/theme/font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/enum/gender.dart';
-import '../view_model/register/register_cubit.dart';
-import '../view_model/register/register_event.dart';
-import '../view_model/register/register_state.dart';
+import '../../../../../core/enum/gender.dart';
+import '../../view_model/register/register_cubit.dart';
+import '../../view_model/register/register_event.dart';
+import '../../view_model/register/register_state.dart';
 
 class GenderSection extends StatelessWidget {
   const GenderSection({super.key});
@@ -33,7 +33,7 @@ class GenderSection extends StatelessWidget {
                       intent: ChangeGenderIntent(value!),
                     );
                   },
-                  child: Row(
+                  child:  Row(
                     children: [
                       const Radio(
                         value: Gender.male,

@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flowerecommeric/feature/auth/api/models/login/login_request.dart';
+import 'package:flowerecommeric/feature/auth/api/models/login/login_response.dart';
 import 'package:flowerecommeric/feature/auth/api/models/register/register_request.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -15,4 +17,6 @@ abstract class AuthApiServices{
 factory AuthApiServices(Dio dio)=_AuthApiServices;
 @POST(ApiEndPoints.authEndPoint+ApiEndPoints.signupEndPoint)
   Future<RegisterResponse>signUp(@Body() RegisterRequest request);
+@POST(ApiEndPoints.authEndPoint+ApiEndPoints.loginEndPoint)
+Future<LoginResponse>login(@Body() LoginRequest request);
 }

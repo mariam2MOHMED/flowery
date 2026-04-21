@@ -10,23 +10,31 @@ class RegisterState extends Equatable{
   final  Gender gender;
   final bool isObsecurePass;
   final bool isObsecureConfirmPass;
-
- const RegisterState({
+final AutovalidateMode autovalidateMode;
+final bool isFilled;
+ const RegisterState( {
    this.registerStatus=const StateStatus.initial(),
     this.gender=Gender.male,
     this.isObsecurePass=true,
-    this.isObsecureConfirmPass=true});
+    this.isObsecureConfirmPass=true,
+   this.isFilled=false,
+   this.autovalidateMode=AutovalidateMode.disabled
+ });
   RegisterState copyWith({
     StateStatus<RegisterEntity>?registerStatus,
       Gender? gender,
      bool? isObsecurePass,
-     bool? isObsecureConfirmPass
+    bool? isFilled,
+     bool? isObsecureConfirmPass,
+    AutovalidateMode? autovalidateMode
 }){
     return RegisterState(
       registerStatus: registerStatus??this.registerStatus,
       gender: gender??this.gender,
+      isFilled:isFilled??this.isFilled ,
       isObsecurePass: isObsecurePass??this.isObsecurePass,
-      isObsecureConfirmPass: isObsecureConfirmPass??this.isObsecureConfirmPass
+      isObsecureConfirmPass: isObsecureConfirmPass??this.isObsecureConfirmPass,
+    autovalidateMode: autovalidateMode??this.autovalidateMode
     );
 }
   @override
@@ -34,7 +42,9 @@ class RegisterState extends Equatable{
     registerStatus,
     gender,
     isObsecurePass,
-    isObsecureConfirmPass
+    isObsecureConfirmPass,
+    autovalidateMode,
+    isFilled
   ];
 
 
