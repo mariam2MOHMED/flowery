@@ -27,6 +27,15 @@ import '../../feature/auth/presentation/view_model/login/login_cubit.dart'
     as _i21;
 import '../../feature/auth/presentation/view_model/register/register_cubit.dart'
     as _i987;
+import '../../feature/home/api/client/home_api_services.dart' as _i397;
+import '../../feature/home/api/data_source/home_data_source_impl.dart' as _i145;
+import '../../feature/home/data/data_source/home_data_source.dart' as _i130;
+import '../../feature/home/data/repo/home_repo_impl.dart' as _i909;
+import '../../feature/home/domain/repo/home_repo.dart' as _i518;
+import '../../feature/home/domain/use_case/get_home_data_use_case.dart'
+    as _i422;
+import '../../feature/home/presentation/view_model/home/home_cubit.dart'
+    as _i244;
 import '../interceptor/token_interecptor.dart' as _i931;
 import '../local_storage/secure_storage.dart' as _i146;
 import 'modules/dio.dart' as _i916;
@@ -56,11 +65,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i199.AuthApiServices>(
       () => _i199.AuthApiServices(gh<_i361.Dio>()),
     );
+    gh.factory<_i397.HomeClient>(() => _i397.HomeClient(gh<_i361.Dio>()));
     gh.factory<_i868.AuthRemoteDataSource>(
       () => _i27.AuthRemoteDataSourceImpl(gh<_i199.AuthApiServices>()),
     );
+    gh.factory<_i130.HomeRemoteDataSource>(
+      () => _i145.HomeRemoteDataSourceImpl(gh<_i397.HomeClient>()),
+    );
+    gh.factory<_i518.HomeRepo>(
+      () => _i909.HomeRepoImpl(gh<_i130.HomeRemoteDataSource>()),
+    );
     gh.factory<_i976.AuthRepo>(
       () => _i577.AuthRepoImpl(gh<_i868.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i422.GetHomeDataUseCase>(
+      () => _i422.GetHomeDataUseCase(gh<_i518.HomeRepo>()),
     );
     gh.factory<_i433.LoginUseCase>(
       () => _i433.LoginUseCase(gh<_i976.AuthRepo>()),
@@ -76,6 +95,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i987.RegisterCubit>(
       () => _i987.RegisterCubit(gh<_i313.RegisterUseCase>()),
+    );
+    gh.factory<_i244.HomeCubit>(
+      () => _i244.HomeCubit(gh<_i422.GetHomeDataUseCase>()),
     );
     return this;
   }

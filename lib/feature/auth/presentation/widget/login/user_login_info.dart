@@ -9,17 +9,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UserLoginInfo extends StatelessWidget {
   const UserLoginInfo({super.key,
     required this.email,
-    required this.pssword});
+    required this.pssword, this.onChanged});
 final TextEditingController email;
   final TextEditingController pssword;
-
+final  void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextFormField(
           controller: email,
-
+onChanged: onChanged,
           validator:(val)=>
               Validator.validateEmail(context, val),
           decoration:InputDecoration(
@@ -33,6 +33,8 @@ final TextEditingController email;
            builder: (context,obsecure){
            return  TextFormField(
              controller: pssword,
+             onChanged: onChanged,
+
              autocorrect: false,
              obscureText: obsecure,
              enableSuggestions: false,

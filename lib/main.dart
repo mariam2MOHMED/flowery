@@ -28,12 +28,10 @@ class Flowery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
-
         return MaterialApp(
 
-          debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.signup,
+         debugShowCheckedModeBanner: false,
+          initialRoute: AppRoutes.login,
           theme: AppTheme.lightTheme,
           onGenerateRoute: Routes.onGenerate,
           locale: const Locale('en'),

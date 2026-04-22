@@ -61,6 +61,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get continueWord => 'تواصل';
 
   @override
+  String get viewAll => 'عرض الكل';
+
+  @override
   String get login => 'تسجيل الدخول';
 
   @override

@@ -27,10 +27,11 @@ abstract class ApiEndPoints {
   static const String editProfileEndPoint = 'auth/editProfile';
   static const String uploadProfileEndPoint = 'auth/upload-photo';
   static const String changePasswordEndPoint = 'auth/change-password';
+  static const String home = 'home';
 
   //addresses
   static const String addressEndPoint = 'addresses';
-  ///logout
+  //logout
   static const String logOutEndPoint = 'logout';
 
   static const String getUserDataEndPoint = 'profile-data';

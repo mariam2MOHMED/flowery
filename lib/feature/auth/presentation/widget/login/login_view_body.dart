@@ -1,3 +1,4 @@
+import 'package:flowerecommeric/core/route_manage/app_routes.dart';
 import 'package:flowerecommeric/core/theme/app_colors.dart';
 import 'package:flowerecommeric/feature/auth/presentation/view_model/login/login_cubit.dart';
 import 'package:flowerecommeric/feature/auth/presentation/view_model/login/login_intent.dart';
@@ -31,6 +32,7 @@ class LoginViewBody extends StatelessWidget {
         message: AppLocalizations.of(context)!.loginSuccess,
         context: context,
       );
+      Navigator.of(context).pushNamed(AppRoutes.home);
     }
     if (state.loginStatus.isFailure) {
       SnackBarWidgets.showErrorMessage(
@@ -43,8 +45,7 @@ BlocBuilder<LoginCubit,LoginState>(
     buildWhen: (prev,curr)=>prev.autovalidateMode!=curr.autovalidateMode
     ||   prev.loginStatus != curr.loginStatus,
 
-
-    builder: (context,state){
+  builder: (context,state){
   final cubit= context.read<LoginCubit>();
 
   return Form(
@@ -53,39 +54,46 @@ BlocBuilder<LoginCubit,LoginState>(
     child:   Column(
       children: [
         UserLoginInfo(email: cubit.email,
-            pssword: cubit.password),
+            pssword: cubit.password,
+        onChanged: (_){
+          cubit.doIntent(intent: const FormChangedIntent());
+        },
+        ),
         const SizedBox(height: 20.0,),
         const RememberMeSection(),
         const SizedBox(height: 63.0,),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size(double.infinity, 50),
-          ),
-          onPressed:state.isFormFilled
-              ?  (){
-            context.read<LoginCubit>().doIntent(
-                intent: const LoginSubmitIntent());
-          }:null,
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            switchInCurve: Curves.easeInOut,
-            switchOutCurve: Curves.easeInBack,
-            child:
-            cubit.state.loginStatus.isLoading
+   BlocSelector<LoginCubit,LoginState,bool>(selector: (state)=>state.isFormFilled,
+       builder: (context,isFormFilled){
+     return      ElevatedButton(
+       style: ElevatedButton.styleFrom(
+         minimumSize: const Size(double.infinity, 50),
+       ),
+       onPressed:isFormFilled
+           ?  (){
+         context.read<LoginCubit>().doIntent(
+             intent: const LoginSubmitIntent());
+       }:null,
+       child: AnimatedSwitcher(
+         duration: const Duration(milliseconds: 200),
+         switchInCurve: Curves.easeInOut,
+         switchOutCurve: Curves.easeInBack,
+         child:
+         cubit.state.loginStatus.isLoading
 
-                ? SizedBox(
-              width: 24.0,
-              height: 24.0,
-              key: const ValueKey('loading'),
-              child: LoadingAnimationWidget.inkDrop(
-                color: AppColors.white,
-                size: 20.0,
-              ),
-            )
-                : Text(
-                key: const ValueKey('login') ,
-                AppLocalizations.of(context)!.login),
-          ),),
+             ? SizedBox(
+           width: 24.0,
+           height: 24.0,
+           key: const ValueKey('loading'),
+           child: LoadingAnimationWidget.inkDrop(
+             color: AppColors.white,
+             size: 20.0,
+           ),
+         )
+             : Text(
+             key: const ValueKey('login') ,
+             AppLocalizations.of(context)!.login),
+       ),);
+       }),
         const SizedBox(height: 16.0,),
         ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -101,7 +109,9 @@ BlocBuilder<LoginCubit,LoginState>(
                     )
                 )
             ),
-            onPressed: (){},
+            onPressed: (){
+              
+            },
             child: Text(AppLocalizations.of(context)!.continueAsGuest)),
         const SizedBox(height: 16.0,),
 

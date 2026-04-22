@@ -200,6 +200,12 @@ abstract class AppLocalizations {
   /// **'continue'**
   String get continueWord;
 
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'view All'**
+  String get viewAll;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:

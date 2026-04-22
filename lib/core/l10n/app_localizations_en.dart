@@ -61,6 +61,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueWord => 'continue';
 
   @override
+  String get viewAll => 'view All';
+
+  @override
   String get login => 'Login';
 
   @override
