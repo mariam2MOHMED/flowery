@@ -1,6 +1,8 @@
 import 'package:flowerecommeric/core/route_manage/app_routes.dart';
 import 'package:flowerecommeric/feature/auth/presentation/screens/login/login_screen.dart';
 import 'package:flowerecommeric/feature/auth/presentation/screens/register/signup_screen.dart';
+import 'package:flowerecommeric/feature/home/domain/entity/product_entity.dart';
+import 'package:flowerecommeric/feature/home/presentation/view/screens/best_seller_screen.dart';
 import 'package:flowerecommeric/feature/home/presentation/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,12 @@ abstract class Routes{
       case AppRoutes.signup:
         return MaterialPageRoute(builder: (context )=>
         const SignupScreen());
+      case AppRoutes.bestSeller:
+        final bestSellers=setting.arguments as List<ProductEntity>;
+        return MaterialPageRoute(builder: (context )=>
+         BestSellerScreen(
+          bestSeller: bestSellers,
+        ));
       case AppRoutes.home:
         return MaterialPageRoute(builder: (context )=>
         const HomeScreen());

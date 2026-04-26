@@ -3,6 +3,7 @@ import 'package:flowerecommeric/core/theme/app_colors.dart';
 import 'package:flowerecommeric/core/theme/font_manager.dart';
 import 'package:flowerecommeric/core/theme/font_style.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TitleHeader extends StatelessWidget {
   const TitleHeader({super.key,
@@ -17,7 +18,7 @@ final String title;final void Function()? onTap;
       fontSize: FontSize.s18
       ),),
         const Spacer(),
-        GestureDetector(
+        InkWell(
           onTap:onTap,
           child:     Text(AppLocalizations.of(context)!.viewAll
             ,style: getMediumStyle(color: AppColors.pink,
